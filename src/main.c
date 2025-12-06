@@ -14,7 +14,10 @@ int main(int argc, char *argv[]) {
     input[strcspn(input, "\n")] = '\0';
     if (strcmp(input, "exit") == 0)
       break;
-    printf("%s: command not found\n", input);
+    else if (strncmp(input, "echo", 4) == 0) {
+      printf("%s\n", input + 5);
+    } else
+      printf("%s: command not found\n", input);
   }
   return 0;
 }
