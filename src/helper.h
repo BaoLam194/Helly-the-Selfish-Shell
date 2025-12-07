@@ -11,3 +11,7 @@
 #define PATH_LIST_SEPARATOR ":"
 #endif
 char *check_executable_file_in_path(const char *file);
+
+// To support execute programme
+#include <sys/types.h> // pid_t
+#include <sys/wait.h>  // wait(), waitpid()

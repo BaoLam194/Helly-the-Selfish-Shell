@@ -1,5 +1,7 @@
 #include "helper.h"
 #include <stdio.h>
+#define MAX_COMMAND_LENGTH 1024
+#define MAX_ARGUMENT_COUNT 100
 
 int main(int argc, char *argv[]) {
   // Flush after every printf
@@ -7,7 +9,7 @@ int main(int argc, char *argv[]) {
 
   while (1) {
     printf("$ ");
-    char input[512];
+    char input[MAX_COMMAND_LENGTH];
     fgets(input, sizeof(input), stdin);
     // Remove trailing end-line and add null byte
     input[strcspn(input, "\n")] = '\0';
@@ -15,20 +17,22 @@ int main(int argc, char *argv[]) {
     // Tokenize the input
     char *saveptr1;
     char *command_token;
-    char copy_input[512];
+    char copy_input[MAX_COMMAND_LENGTH]; // maybe we need input again
     memcpy(copy_input, input, sizeof(input));
+
+    // Take out the command only and check
     command_token = strtok_r(copy_input, " \t", &saveptr1);
     if (strcmp(command_token, "exit") == 0) // exit command
       break;
     else if (strcmp(command_token, "echo") == 0) { // echo command
       printf("%s", saveptr1);
     }
-    else if (strcmp(command_token, "type") == 0) {
+    else if (strcmp(command_token, "type") == 0) { // type command
       if (strcmp(saveptr1, "type") == 0 || strcmp(saveptr1, "exit") == 0 ||
           strcmp(saveptr1, "echo") == 0) {
         printf("%s is a shell builtin", saveptr1);
       }
-      else {
+      else { // if not built in
         char *temp = check_executable_file_in_path(saveptr1);
         if (!temp)
           printf("%s: not found", saveptr1);
@@ -38,8 +42,30 @@ int main(int argc, char *argv[]) {
         }
       }
     }
-    else
-      printf("%s: command not found", input);
+    else { // check if command exists in path and executable
+      char *temp = check_executable_file_in_path(command_token);
+      if (!temp)
+        printf("%s: command not found", input);
+      else { // handle the arguement
+        char *argument_array[MAX_ARGUMENT_COUNT];
+        int count = 0;
+        argument_array[count++] = strdup(command_token);
+        char *token = strtok_r(NULL, " \t", &saveptr1);
+        while (token != NULL) {
+          argument_array[count++] = strdup(token);
+          token = strtok_r(NULL, " \t", &saveptr1);
+        }
+        argument_array[count] = NULL;
+
+        pid_t pid = fork();
+        if (pid == 0) { // child process
+          execv(temp, argument_array);
+          perror("Can not execute by error : ");
+          exit(1);
+        }
+        wait(NULL); // wait for child process
+      }
+    }
     printf("\n");
   }
   return 0;
