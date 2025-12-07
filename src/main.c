@@ -22,14 +22,24 @@ int main(int argc, char *argv[]) {
 
     // Take out the command only and check
     command_token = strtok_r(copy_input, " \t", &saveptr1);
-    if (strcmp(command_token, "exit") == 0) // exit command
+    if (strcmp(command_token, "exit") == 0) { // exit command
       break;
+    }
     else if (strcmp(command_token, "echo") == 0) { // echo command
       printf("%s\n", saveptr1);
     }
+    else if (strcmp(command_token, "pwd") == 0) { // pwd command
+      char *temp = getcwd(NULL, 0);
+      if (temp == NULL) {
+        printf("Current working directory not found");
+        exit(1);
+      }
+      printf("%s\n", temp);
+      free(temp);
+    }
     else if (strcmp(command_token, "type") == 0) { // type command
       if (strcmp(saveptr1, "type") == 0 || strcmp(saveptr1, "exit") == 0 ||
-          strcmp(saveptr1, "echo") == 0) {
+          strcmp(saveptr1, "echo") == 0 || strcmp(saveptr1, "pwd") == 0) {
         printf("%s is a shell builtin", saveptr1);
       }
       else { // if not built in
@@ -38,7 +48,7 @@ int main(int argc, char *argv[]) {
           printf("%s: not found", saveptr1);
         else {
           printf("%s is %s", saveptr1, temp);
-          free(temp); // Free the allocated memory
+          free(temp); // free the allocated memory
         }
       }
       printf("\n");
@@ -56,17 +66,25 @@ int main(int argc, char *argv[]) {
         char *token = strtok_r(NULL, " \t", &saveptr1);
         while (token != NULL) {
           argument_array[count++] = strdup(token);
+          if (count >= MAX_ARGUMENT_COUNT) {
+            perror("More than 1024 argumeants!!! What are you doing :)");
+            exit(1);
+          }
           token = strtok_r(NULL, " \t", &saveptr1);
         }
         argument_array[count] = NULL;
-
         pid_t pid = fork();
         if (pid == 0) { // child process
           execv(temp, argument_array);
-          perror("Can not execute by error : ");
+          printf("%s: command not found\n", command_token);
           exit(1);
         }
         wait(NULL); // wait for child process
+
+        // free allocated memory
+        for (int i = 0; i < count; i++) {
+          free(argument_array[i]);
+        }
       }
     }
   }
