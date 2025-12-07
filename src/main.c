@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
     if (strcmp(command_token, "exit") == 0) // exit command
       break;
     else if (strcmp(command_token, "echo") == 0) { // echo command
-      printf("%s", saveptr1);
+      printf("%s\n", saveptr1);
     }
     else if (strcmp(command_token, "type") == 0) { // type command
       if (strcmp(saveptr1, "type") == 0 || strcmp(saveptr1, "exit") == 0 ||
@@ -41,11 +41,14 @@ int main(int argc, char *argv[]) {
           free(temp); // Free the allocated memory
         }
       }
+      printf("\n");
     }
     else { // check if command exists in path and executable
       char *temp = check_executable_file_in_path(command_token);
-      if (!temp)
+      if (!temp) {
         printf("%s: command not found", input);
+        printf("\n");
+      }
       else { // handle the arguement
         char *argument_array[MAX_ARGUMENT_COUNT];
         int count = 0;
@@ -66,7 +69,6 @@ int main(int argc, char *argv[]) {
         wait(NULL); // wait for child process
       }
     }
-    printf("\n");
   }
   return 0;
 }
