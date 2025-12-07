@@ -10,4 +10,4 @@
 #else
 #define PATH_LIST_SEPARATOR ":"
 #endif
-char *check_exectable_file_in_path(const char *file);
+char *check_executable_file_in_path(const char *file);

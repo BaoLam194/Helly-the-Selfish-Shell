@@ -18,9 +18,9 @@ int main(int argc, char *argv[]) {
     char copy_input[512];
     memcpy(copy_input, input, sizeof(input));
     command_token = strtok_r(copy_input, " \t", &saveptr1);
-    if (strcmp(command_token, "exit") == 0)
+    if (strcmp(command_token, "exit") == 0) // exit command
       break;
-    else if (strcmp(command_token, "echo") == 0) {
+    else if (strcmp(command_token, "echo") == 0) { // echo command
       printf("%s", saveptr1);
     }
     else if (strcmp(command_token, "type") == 0) {
@@ -29,7 +29,7 @@ int main(int argc, char *argv[]) {
         printf("%s is a shell builtin", saveptr1);
       }
       else {
-        char *temp = check_exectable_file_in_path(saveptr1);
+        char *temp = check_executable_file_in_path(saveptr1);
         if (!temp)
           printf("%s: not found", saveptr1);
         else {

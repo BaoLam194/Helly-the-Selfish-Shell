@@ -1,5 +1,5 @@
 #include "helper.h"
-char *check_exectable_file_in_path(const char *file) {
+char *check_executable_file_in_path(const char *file) {
   // Get path variable and split
   char *split, *savepath;
   char *path = strdup(getenv("PATH"));
