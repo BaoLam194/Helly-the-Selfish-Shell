@@ -29,10 +29,13 @@ bool check_path_to_dir(char *path, char *from, char **dest) {
     char *copy_path;
     if (path[0] == '~') {
       char *home = strdup(getenv("HOME"));
+      if (!home)
+        return false;
       copy_path = malloc(sizeof(char) * MAX_PATH_LENGTH);
       copy_path[0] = '\0';
       strcat(copy_path, home);
       strcat(copy_path, path + 1);
+      free(home);
     }
     else {
       copy_path = strdup(path);
@@ -40,6 +43,7 @@ bool check_path_to_dir(char *path, char *from, char **dest) {
     if (access(copy_path, X_OK) != 0) {
       // can not access (could be no execute permission
       // or path not exist)
+      free(copy_path);
       return false;
     }
     struct stat sb;
@@ -58,7 +62,6 @@ bool check_path_to_dir(char *path, char *from, char **dest) {
   }
   else {
     // Tokenize the path and cwd into array
-    int to_remove = 0; // to remove the array later
     char *path_split_1[MAX_ARGUMENT_COUNT];
     int count_1 = 0;
     char *saveptr_1, *saveptr_2;
@@ -87,13 +90,23 @@ bool check_path_to_dir(char *path, char *from, char **dest) {
       }
       token = strtok_r(NULL, "/", &saveptr_2);
     }
-    to_remove = my_max(to_remove, count_2);
     for (int i = 0; i < count_1; i++) { // build dest from path and from
       if (strcmp(path_split_1[i], ".") == 0)
         continue;
       if (strcmp(path_split_1[i], "..") == 0) {
-        to_remove = my_max(to_remove, count_2);
         count_2--;
+        if (count_2 < 0) { // unable to go lower
+          free(dup_input_1);
+          free(dup_input_2);
+          for (int i = 0; i < count_1; i++) {
+            free(path_split_1[i]);
+          }
+          for (int i = 0; i < count_2; i++) {
+            free(path_split_2[i]);
+          }
+          return false;
+        }
+        free(path_split_2[count_2]);
       }
       else {
         path_split_2[count_2++] = strdup(path_split_1[i]);
@@ -102,8 +115,6 @@ bool check_path_to_dir(char *path, char *from, char **dest) {
           exit(1);
         }
       }
-      if (count_2 < 0)
-        return false; // unable to go lower
     }
 
     // Allocate memory and construct the new destination
@@ -125,7 +136,7 @@ bool check_path_to_dir(char *path, char *from, char **dest) {
     for (int i = 0; i < count_1; i++) {
       free(path_split_1[i]);
     }
-    for (int i = 0; i < to_remove; i++) {
+    for (int i = 0; i < count_2; i++) {
       free(path_split_2[i]);
     }
 
@@ -133,6 +144,8 @@ bool check_path_to_dir(char *path, char *from, char **dest) {
     if (access(*dest, X_OK) != 0) {
       // can not access (could be no execute permission
       // or path not exist)
+      free(*dest);
+      *dest = NULL;
       return false;
     }
     struct stat sb;
