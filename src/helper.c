@@ -214,6 +214,17 @@ char **parse_input(char *input, int *count) {
       }
     }
     case DOUBLE_QUOTE: {
+      if (input[i] == '\"') {
+        flag = NORMAL;
+      }
+      else {
+        if (cur_len >= MAX_ARGUMENT_LENGTH - 1) {
+          printf("Argument too lengthy, you have %d\n", cur_len);
+          exit(1);
+        }
+        token[cur_len++] = input[i];
+        token[cur_len] = '\0';
+      }
     }
     case BACKSLASH: {
     }
