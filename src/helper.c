@@ -31,7 +31,7 @@ bool check_path_to_dir(char *path, char *from, char **dest) {
       char *home = strdup(getenv("HOME"));
       if (!home)
         return false;
-      copy_path = malloc(sizeof(char) * MAX_PATH_LENGTH);
+      copy_path = malloc(sizeof(char) * MAX_ARGUMENT_LENGTH);
       copy_path[0] = '\0';
       strcat(copy_path, home);
       strcat(copy_path, path + 1);
@@ -118,7 +118,7 @@ bool check_path_to_dir(char *path, char *from, char **dest) {
     }
 
     // Allocate memory and construct the new destination
-    *dest = malloc(sizeof(char) * MAX_PATH_LENGTH);
+    *dest = malloc(sizeof(char) * MAX_ARGUMENT_LENGTH);
     if (is_absolute) {
       (*dest)[0] = '/';
       (*dest)[1] = '\0';
@@ -161,3 +161,50 @@ bool check_path_to_dir(char *path, char *from, char **dest) {
   return false;
 }
 int my_max(int a, int b) { return (a > b) ? a : b; }
+
+// Parse the input and store number of arguments into count, count should be 0
+char **parse_input(char *input, int *count) {
+  if (*count != 0) {
+    printf("You give wrong argument to parse input");
+    return NULL;
+  }
+  int end = strlen(input);
+  state flag = NORMAL;
+  char **result = malloc(sizeof(char *) * MAX_ARGUMENT_COUNT);
+  char token[MAX_ARGUMENT_LENGTH];
+  int cur_len = 0;
+  for (int i = 0; i <= end; i++) {
+    switch (flag) {
+    case NORMAL: {
+      if (i == end || input[i] == ' ' || input[i] == '\t') { // Delimiter
+        if (!cur_len)
+          break;
+        else {
+          result[(*count)++] = strdup(token);
+          cur_len = 0;
+          token[cur_len] = '\0';
+        }
+      }
+      else if (input[i] == '\'')
+        flag = SINGLE_QUOTE;
+      else if (input[i] == '\"')
+        flag = DOUBLE_QUOTE;
+      else { // Normal case
+        token[cur_len++] = input[i];
+        token[cur_len] = '\0';
+      }
+      break;
+    }
+    case SINGLE_QUOTE: {
+    }
+    case DOUBLE_QUOTE: {
+    }
+    case BACKSLASH: {
+    }
+    default: {
+      break;
+    }
+    }
+  }
+  return result;
+}
