@@ -191,8 +191,8 @@ char **parse_input(char *input, int *count) {
       else if (input[i] == '\"')
         flag = DOUBLE_QUOTE;
       else { // Normal case
-        if (cur_len >= MAX_ARGUMENT_COUNT - 1) {
-          printf("Argument too long: %d\n", cur_len);
+        if (cur_len >= MAX_ARGUMENT_LENGTH - 1) {
+          printf("Argument too lengthy, you have %d\n", cur_len);
           exit(1);
         }
         token[cur_len++] = input[i];
@@ -201,6 +201,17 @@ char **parse_input(char *input, int *count) {
       break;
     }
     case SINGLE_QUOTE: {
+      if (input[i] == '\'') {
+        flag = NORMAL;
+      }
+      else {
+        if (cur_len >= MAX_ARGUMENT_LENGTH - 1) {
+          printf("Argument too lengthy, you have %d\n", cur_len);
+          exit(1);
+        }
+        token[cur_len++] = input[i];
+        token[cur_len] = '\0';
+      }
     }
     case DOUBLE_QUOTE: {
     }
@@ -210,6 +221,9 @@ char **parse_input(char *input, int *count) {
       break;
     }
     }
+  }
+  if (flag != NORMAL) {
+    printf("You illegally leave some special characters alone");
   }
   return result;
 }
