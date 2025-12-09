@@ -212,6 +212,7 @@ char **parse_input(char *input, int *count) {
         token[cur_len++] = input[i];
         token[cur_len] = '\0';
       }
+      break;
     }
     case DOUBLE_QUOTE: {
       if (input[i] == '\"') {
@@ -225,6 +226,7 @@ char **parse_input(char *input, int *count) {
         token[cur_len++] = input[i];
         token[cur_len] = '\0';
       }
+      break;
     }
     case BACKSLASH: {
     }
