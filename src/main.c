@@ -24,13 +24,7 @@ int main(int argc, char *argv[]) {
       return 0;
     }
     // Check which type of command for better handle
-    if (is_built_in(mod_input[0])) {
-      // It is built_in command
-      handle_built_in(mod_input, count, &cwd, flag);
-    }
-    else { // check if command exists in path and executable
-      execute_existing(mod_input, count);
-    }
+    handle_command(mod_input, count, &cwd, flag);
     for (int i = 0; i < count; i++) {
       free(mod_input[i]);
     }

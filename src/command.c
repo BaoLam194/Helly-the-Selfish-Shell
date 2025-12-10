@@ -1,9 +1,17 @@
 #include "helper.h"
 
 bool is_built_in(char *command) {
-  if (strcmp(command, "type") == 0 || strcmp(command, "exit") == 0 ||
-      strcmp(command, "echo") == 0 || strcmp(command, "pwd") == 0 ||
-      strcmp(command, "cd") == 0) {
+  if (strcmp(command, "type") == 0 || strcmp(command, "exit") == 0 || strcmp(command, "echo") == 0 ||
+      strcmp(command, "pwd") == 0 || strcmp(command, "cd") == 0) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+
+bool is_immutable_to_redirect(char *command) { // So that we don't need to spawn new process for
+  if (strcmp(command, "exit") == 0 || strcmp(command, "cd") == 0) {
     return true;
   }
   else {
@@ -84,12 +92,49 @@ void execute_built_in(char **command, int count, char **cwd) {
   }
   return;
 }
+void handle_command(char **command, int count, char **cwd, int flag) {
+  if (flag == 0) { // No redirect
+    if (is_built_in(command[0])) {
+      // It is built_in command
+      execute_built_in(command, count, cwd);
+    }
+    else { // check if command exists in path and executable
+      execute_existing(command, count);
+    }
+  }
+  else {
+    if (is_built_in(command[0]) && is_immutable_to_redirect(command[0])) {
+      // It is built_in command
+      execute_built_in(command, count, cwd);
+    }
+    else { // Always need spawn new child process to cover this execution
+      int cnt = 0;
+      char **mod_command;
+      pid_t pid = fork();
+      if (pid == -1) {
+        fprintf(stderr, "Error handling command");
+        return;
+      }
 
-void handle_built_in(char **command, int count, char **cwd, int flag) {
-  if (flag == 0)
-    execute_built_in(command, count, cwd);
+      if (pid == 0) { // in child process
+        // extract new command and set file descriptor
+        mod_command = extract_redirect_from_input(command, count, &cnt);
+        if (is_built_in(command[0])) {
+          execute_built_in(mod_command, cnt, cwd);
+        }
+        else {
+          execute_existing(mod_command, cnt);
+        }
+        for (int i = 0; i < cnt; i++) {
+          free(mod_command[i]);
+        }
+        free(mod_command);
+        exit(0);
+      }
+      wait(NULL); // wait for the child process
+    }
+  }
 }
-
 // Need to modify the saveptr so **
 void execute_existing(char **command, int count) {
   char *command_token = command[0];
@@ -97,6 +142,7 @@ void execute_existing(char **command, int count) {
   if (!temp) {
     fprintf(stderr, "%s: command not found", command_token);
     printf("\n");
+    return;
   }
   else { // handle the arguement
     char **argument_list = malloc(sizeof(char *) * (count + 1));
@@ -116,5 +162,6 @@ void execute_existing(char **command, int count) {
       free(argument_list[i]);
     }
     free(argument_list);
+    return;
   }
 }

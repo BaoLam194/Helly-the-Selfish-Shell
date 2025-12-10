@@ -204,13 +204,14 @@ char **parse_input(char *input, int *count, int *flag) {
         state = SINGLE_QUOTE;
       else if (input[i] == '\"')
         state = DOUBLE_QUOTE;
-      else if (input[i] == '>') // if redirection appears
-        *flag = 1;
+
       else { // Normal case
         if (cur_len >= MAX_ARGUMENT_LENGTH - 1) {
           fprintf(stderr, "Argument too lengthy, you have %d\n", cur_len);
           exit(1);
         }
+        if (input[i] == '>') // if redirection appears
+          *flag = 1;
         token[cur_len++] = input[i];
         token[cur_len] = '\0';
       }
@@ -270,6 +271,37 @@ char **parse_input(char *input, int *count, int *flag) {
   if (state != NORMAL) {
     fprintf(stderr, "You illegally leave some special characters alone");
     exit(1);
+  }
+  return result;
+}
+
+// Extract the new command from input without the redirection and set the file
+// descriptor accordingly, similarly to brute force ?
+char **extract_redirect_from_input(char **input, int input_cnt, int *res_cnt) {
+  char **result = malloc(sizeof(char *) * MAX_ARGUMENT_COUNT);
+  for (int i = 0; i < input_cnt;) { // handle i seperately
+    if (strcmp(input[i], ">") == 0 || strcmp(input[i], "1>") == 0) { // output
+      if (i == input_cnt - 1) {
+        return NULL;
+      }
+      int fd = open(input[i + 1], O_WRONLY | O_CREAT | O_TRUNC, 0644);
+      dup2(fd, STDOUT_FILENO); // input
+      close(fd);
+      i += 2;
+    }
+    else if (strcmp(input[i], "2>") == 0) { // error
+      if (i == input_cnt - 1) {
+        return NULL;
+      }
+      int fd = open(input[i + 1], O_WRONLY | O_CREAT | O_TRUNC, 0644);
+      dup2(fd, STDERR_FILENO); // output
+      close(fd);
+      i += 2;
+    }
+    else {
+      result[(*res_cnt)++] = strdup(input[i]);
+      i++;
+    }
   }
   return result;
 }

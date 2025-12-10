@@ -8,9 +8,12 @@
 #define MAX_ARGUMENT_LENGTH 1024
 
 // Command to execute
+#include <fcntl.h> // For open()
+// dup2 from unistd
+bool is_immutable_to_redirect(char *command);
 bool is_built_in(char *command);
 void execute_built_in(char **command, int count, char **cwd);
-void handle_built_in(char **command, int count, char **cwd, int flag);
+void handle_command(char **command, int count, char **cwd, int flag);
 void execute_existing(char **command, int count);
 char **parse_input(char *input, int *count, int *flag);
 typedef enum { // use as
@@ -18,6 +21,7 @@ typedef enum { // use as
   SINGLE_QUOTE = 2,
   DOUBLE_QUOTE = 3,
 } state;
+char **extract_redirect_from_input(char **input, int input_cnt, int *res_cnt);
 
 // To support the type command
 #include <unistd.h> // for access function
