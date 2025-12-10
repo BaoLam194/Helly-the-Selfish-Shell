@@ -237,8 +237,7 @@ char **parse_input(char *input, int *count, int *flag) {
           fprintf(stderr, "Argument too lengthy, you have %d\n", cur_len);
           exit(1);
         }
-        if (input[i] != '\"' && input[i] != '\\' && input[i] != '$' &&
-            input[i] != '`') {
+        if (input[i] != '\"' && input[i] != '\\' && input[i] != '$' && input[i] != '`') {
           token[cur_len++] = '\\';
           token[cur_len] = '\0';
         }
@@ -280,7 +279,8 @@ char **parse_input(char *input, int *count, int *flag) {
 char **extract_redirect_from_input(char **input, int input_cnt, int *res_cnt) {
   char **result = malloc(sizeof(char *) * MAX_ARGUMENT_COUNT);
   for (int i = 0; i < input_cnt;) { // handle i seperately
-    if (strcmp(input[i], ">") == 0 || strcmp(input[i], "1>") == 0) { // output
+    if (strcmp(input[i], ">") == 0 || strcmp(input[i], "1>") == 0) {
+      // truncated -> output
       if (i == input_cnt - 1) {
         return NULL;
       }
@@ -289,11 +289,32 @@ char **extract_redirect_from_input(char **input, int input_cnt, int *res_cnt) {
       close(fd);
       i += 2;
     }
-    else if (strcmp(input[i], "2>") == 0) { // error
+    else if (strcmp(input[i], ">>") == 0 || strcmp(input[i], "1>>") == 0) {
+      // append output
+      if (i == input_cnt - 1) {
+        return NULL;
+      }
+      int fd = open(input[i + 1], O_WRONLY | O_CREAT | O_APPEND, 0644);
+      dup2(fd, STDOUT_FILENO);
+      close(fd);
+      i += 2;
+    }
+    else if (strcmp(input[i], "2>") == 0) {
+      // truncated -> error
       if (i == input_cnt - 1) {
         return NULL;
       }
       int fd = open(input[i + 1], O_WRONLY | O_CREAT | O_TRUNC, 0644);
+      dup2(fd, STDERR_FILENO); // output
+      close(fd);
+      i += 2;
+    }
+    else if (strcmp(input[i], "2>>") == 0) {
+      // append error
+      if (i == input_cnt - 1) {
+        return NULL;
+      }
+      int fd = open(input[i + 1], O_WRONLY | O_CREAT | O_APPEND, 0644);
       dup2(fd, STDERR_FILENO); // output
       close(fd);
       i += 2;
