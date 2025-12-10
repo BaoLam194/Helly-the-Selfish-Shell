@@ -1,4 +1,6 @@
 #include "helper.h"
+#include <readline/history.h>
+#include <readline/readline.h>
 #include <stdio.h>
 
 int main(int argc, char *argv[]) {
@@ -6,19 +8,17 @@ int main(int argc, char *argv[]) {
   setbuf(stdout, NULL);
   char *cwd = getcwd(NULL, 0);
   while (1) {
-    // Handle cwd
-    printf("$ ");
-    char input[MAX_COMMAND_LENGTH];
-    fgets(input, sizeof(input), stdin);
-    // Remove trailing end-line and add null byte
-    input[strcspn(input, "\n")] = '\0';
+    // Maybe handle cwd
+    char *input = readline("$ ");
+
+    // Check for EOF.
+    if (!input)
+      break;
 
     // Tokenize the input
-    char copy_input[MAX_COMMAND_LENGTH]; // maybe we need input again
-    memcpy(copy_input, input, sizeof(input));
     int count = 0, flag = 0; // currently the flag is for redirection, may
                              // change if there is better way to handle
-    char **mod_input = parse_input(copy_input, &count, &flag);
+    char **mod_input = parse_input(input, &count, &flag);
     if (!count) {
       printf("No arguments provided \?\?\?\n");
       return 0;
