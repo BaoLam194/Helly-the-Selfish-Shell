@@ -29,20 +29,20 @@ void type_command(char *argument) {
   }
   printf("\n");
 }
-
-bool built_in_command(char **command, int count, char **cwd) {
+// execute
+void execute_built_in(char **command, int count, char **cwd) {
 
   char *command_token = command[0];
   if (strcmp(command_token, "exit") == 0) { // exit command
     exit(0);
-    return true;
+    return;
   }
   else if (strcmp(command_token, "echo") == 0) { // echo command
     for (int i = 1; i < count; i++) {
       echo_command(command[i]);
     }
     printf("\n");
-    return true;
+    return;
   }
   else if (strcmp(command_token, "pwd") == 0) { // pwd command
     if (*cwd == NULL) {
@@ -50,12 +50,12 @@ bool built_in_command(char **command, int count, char **cwd) {
       exit(1);
     }
     printf("%s\n", *cwd);
-    return true;
+    return;
   }
   else if (strcmp(command_token, "cd") == 0) {
     if (count > 2) {
       fprintf(stderr, "%s: too many arguments", command_token);
-      return true;
+      return;
     }
     char *temp = command[1];
     char *to = NULL;
@@ -74,19 +74,19 @@ bool built_in_command(char **command, int count, char **cwd) {
     else {
       fprintf(stderr, "cd: %s: No such file or directory\n", temp);
     }
-    return true;
+    return;
   }
   else if (strcmp(command_token, "type") == 0) { // type command
     for (int i = 1; i < count; i++) {
       type_command(command[i]);
     }
-    return true;
+    return;
   }
-  return false;
+  return;
 }
 
 // Need to modify the saveptr so **
-void existing_command(char **command, int count) {
+void execute_existing(char **command, int count) {
   char *command_token = command[0];
   char *temp = check_executable_file_in_path(command_token);
   if (!temp) {

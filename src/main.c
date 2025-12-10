@@ -25,10 +25,10 @@ int main(int argc, char *argv[]) {
     // Check which type of command for better handle
     if (is_built_in(mod_input[0])) {
       // It is built_in command
-      built_in_command(mod_input, count, &cwd);
+      execute_built_in(mod_input, count, &cwd);
     }
     else { // check if command exists in path and executable
-      existing_command(mod_input, count);
+      execute_existing(mod_input, count);
     }
     for (int i = 0; i < count; i++) {
       free(mod_input[i]);
