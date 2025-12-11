@@ -39,11 +39,17 @@ void type_command(char *argument) {
   printf("\n");
 }
 
-void history_command(char **argument) {
+void history_command(char **argument, int len) {
   HIST_ENTRY **my_his = history_list();
-  int i = 0;
-  for (; my_his[i] != NULL; i++) {
-    printf(" %d %s\n", i + 1, my_his[i]->line);
+  int start;
+  if (len == -1) {
+    start = 0;
+  }
+  else {
+    start = history_length - len;
+  }
+  for (start; my_his[start] != NULL; start++) {
+    printf(" %d %s\n", start + 1, my_his[start]->line);
   }
 }
 // execute
@@ -100,7 +106,21 @@ void execute_built_in(char **command, int count, char **cwd) {
     return;
   }
   else if (strcmp(command_token, "history") == 0) {
-    history_command(command);
+    if (count == 1)
+      history_command(command, -1);
+    else if (command[1][0] == '-') { // arugment to handle : )
+    }
+    else { // must fall into number
+
+      char *end;
+      long val = strtol(command[1], &end, 10);
+      if (*end != '\0') {
+        fprintf(stderr, "%s: %s: invalid option\n", command_token, command[1]);
+      }
+      else {
+        history_command(command, (int)val);
+      }
+    }
   }
   return;
 }
