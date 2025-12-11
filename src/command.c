@@ -1,8 +1,9 @@
 #include "helper.h"
-
+#include <readline/history.h>
+#include <readline/readline.h>
 bool is_built_in(char *command) {
   if (strcmp(command, "type") == 0 || strcmp(command, "exit") == 0 || strcmp(command, "echo") == 0 ||
-      strcmp(command, "pwd") == 0 || strcmp(command, "cd") == 0) {
+      strcmp(command, "pwd") == 0 || strcmp(command, "cd") == 0 || strcmp(command, "history") == 0) {
     return true;
   }
   else {
@@ -36,6 +37,14 @@ void type_command(char *argument) {
     }
   }
   printf("\n");
+}
+
+void history_command(char **argument) {
+  HIST_ENTRY **my_his = history_list();
+  int i = 0;
+  for (; my_his[i] != NULL; i++) {
+    printf(" %d %s\n", i + 1, my_his[i]->line);
+  }
 }
 // execute
 void execute_built_in(char **command, int count, char **cwd) {
@@ -89,6 +98,9 @@ void execute_built_in(char **command, int count, char **cwd) {
       type_command(command[i]);
     }
     return;
+  }
+  else if (strcmp(command_token, "history") == 0) {
+    history_command(command);
   }
   return;
 }

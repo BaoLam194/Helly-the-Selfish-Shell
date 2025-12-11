@@ -9,6 +9,8 @@ int main(int argc, char *argv[]) {
   char *cwd = getcwd(NULL, 0);
   rl_attempted_completion_function = command_completion;
   // Tab -> this attempted completion -> completion -> update shell
+  // Enable history
+  using_history();
   while (1) {
     // Maybe handle cwd
     char *input = readline("$ ");
@@ -16,7 +18,8 @@ int main(int argc, char *argv[]) {
     // Check for EOF.
     if (!input)
       break;
-
+    // Add input to readline history.
+    add_history(input);
     // Tokenize the input
     int count = 0, flag = 0; // currently the flag is for redirection, may
                              // change if there is better way to handle

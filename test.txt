@@ -1,0 +1,1000 @@
+cd ~/repo/codecrafters-dns-server-cpp/
+code .
+git add .
+gti commit
+git commit -m dummy
+git rebase -i HEAD~2
+git push github master -f
+clear
+hexdump -C ./src/serverResponse.txt 
+hexdump -C ./src/clientQuery.txt 
+hexdump -C ./src/serverResponse.txt 
+g++ test.cpp -o test
+./test
+hexdump -C ./src/clientQuery.txt 
+hexdump -C ./src/clientQuery.txt
+hexdump -C ./src/serverResponse.txt 
+hexdump -C ./src/clientQuery.txt 
+hexdump -C ./src/serverResponse.txt 
+hexdump -C ./src/clientQuery.txt 
+hexdump -C ./src/serverResponse.txt 
+git add .
+git commit
+git push github master
+g++ test.cpp -o test
+./test
+g++ test.cpp -o test
+./test
+g++ test.cpp -o test
+./test
+g++ test.cpp -o test
+./test
+g++ test.cpp -o test
+./test
+g++ test.cpp -o test
+./test
+g++ test.cpp -o test
+./test
+g++ test.cpp -o test
+./test
+g++ test.cpp -o test
+./test
+./your_program.sh 
+git add .
+git commit
+git push github master
+git log
+git push github master
+./your_program.sh 
+g++ ./src/client.cpp -i client
+g++ ./src/client.cpp -o client
+./client 127.0.0.1
+g++ ./src/client.cpp -o client
+./client 127.0.0.1
+g++ ./src/client.cpp -o client
+./client 127.0.0.1
+g++ ./src/client.cpp -o client
+./client 127.0.0.1
+g++ ./src/client.cpp -o client
+./client 127.0.0.1
+g++ ./src/client.cpp -o client
+./client 127.0.0.1
+g++ ./src/client.cpp -o client
+./client 127.0.0.1
+g++ ./src/client.cpp -o client
+./client 127.0.0.1
+g++ ./src/client.cpp -o client
+./client 127.0.0.1
+g++ ./src/client.cpp -o client
+./client 127.0.0.1
+g++ ./src/client.cpp -o client
+./client 127.0.0.1
+g++ ./src/client.cpp -o client
+./client 127.0.0.1
+g++ ./src/client.cpp -o client
+./client 127.0.0.1
+g++ ./src/client.cpp -o client
+./client 127.0.0.1
+g++ ./src/client.cpp -o client
+./client 127.0.0.1
+g++ ./src/client.cpp -o client
+./client 127.0.0.1
+g++ ./src/client.cpp -o client
+./client 127.0.0.1
+g++ ./src/client.cpp -o client
+./client 127.0.0.1
+g++ ./src/client.cpp -o client
+./client 127.0.0.1
+g++ ./src/client.cpp -o client
+./client 127.0.0.1
+g++ ./src/client.cpp -o client
+./client 127.0.0.1
+g++ ./src/client.cpp -o client
+./client 127.0.0.1
+g++ ./src/client.cpp -o client
+./client 127.0.0.1
+g++ ./src/client.cpp -o client
+./client 127.0.0.1
+g++ ./src/client.cpp -o client
+./client 127.0.0.1
+g++ ./src/client.cpp -o client
+./client 127.0.0.1
+g++ ./src/client.cpp -o client
+./client 127.0.0.1
+g++ ./src/client.cpp -o client
+./client 127.0.0.1
+g++ ./src/client.cpp -o client
+./client 127.0.0.1
+g++ ./src/client.cpp -o client
+./client 127.0.0.1
+g++ ./src/client.cpp -o client
+./client 127.0.0.1
+g++ ./src/client.cpp -o client
+./client 127.0.0.1
+cd ~/repo
+ls
+git clone git@github.com:redcellengineeringlab/49MNS-analysis-nf.git
+cd 49MNS-analysis-nf/
+ls
+git remote -v
+cd ~
+ls
+nextflow
+cd ~
+ls
+cd downloads
+ls
+cd M2
+ls
+pwndbg
+cat start_of_pwndbg.png 
+61;4;6;7;14;21;22;23;24;28;32;42;52c
+hexdump start_of_pwndbg.png 
+hexdump -C start_of_pwndbg.png 
+ls
+cd ..
+ls
+cd ..
+ls
+cd repo
+ls
+cd codecrafters-dns-server-cpp/
+ls
+cat README.md 
+cmake
+cmake --version
+ls
+client
+./client
+./client 123 523 912
+g++ bfsmazemin.cpp -o codec
+./codec
+g++ bfsmazemin.cpp -o codenhucc
+./codenhucc 
+ipconfig
+ifconfig
+./serverser 
+ipconfig
+ifconfig
+./serverser 
+diff myfile500k.txt myUDPreceive.txt 
+cd ~
+ls
+ip
+ip neighbour
+ifconfig
+man ip
+cd ~/repo/codecrafters-dns-server-cpp/
+code .
+./your_program.sh 
+g++ src/client.cpp -o client
+./client 127.0.0.1
+g++ src/client.cpp -o client
+./client 127.0.0.1
+g++ src/client.cpp -o client
+./client 127.0.0.1
+g++ src/client.cpp -o client
+./client 127.0.0.1
+g++ src/client.cpp -o client
+./client 127.0.0.1
+hexdump -C ./src/clientQuery.txt 
+hexdump -C ./src/serverResPonse.txt 
+hexdump -C ./src/serverResponse.txt 
+git add .
+git commit
+g++ test.cpp -o test 
+./test
+g++ test.cpp -o test 
+./test
+g++ test.cpp -o test 
+./test
+g++ test.cpp -o test 
+./test
+g++ test.cpp -o test 
+./test
+g++ test.cpp -o test 
+./test
+g++ test.cpp -o test 
+./test
+hexdump -C ./src/clientQuery.txt 
+./your_program.sh 
+git add .
+git commit
+git log
+./your_program.sh 
+g++ src/client.cpp -o client
+./client 127.0.0.1
+g++ src/client.cpp -o client
+./client 127.0.0.1
+g++ src/client.cpp -o client
+./client 127.0.0.1
+g++ src/client.cpp -o client
+./client 127.0.0.1
+g++ src/client.cpp -o client
+./client 127.0.0.1
+g++ src/client.cpp -o client
+./client 127.0.0.1
+g++ src/client.cpp -o client
+./client 127.0.0.1
+g++ src/client.cpp -o client
+./client 127.0.0.1
+g++ src/client.cpp -o client
+./client 127.0.0.1
+g++ src/client.cpp -o client
+./client 127.0.0.1
+g++ src/client.cpp -o client
+./client 127.0.0.1
+g++ src/client.cpp -o client
+./client 127.0.0.1
+g++ src/client.cpp -o client
+./client 127.0.0.1
+g++ src/client.cpp -o client
+./client 127.0.0.1
+g++ src/client.cpp -o client
+./client 127.0.0.1
+g++ src/client.cpp -o client
+./client 127.0.0.1
+g++ src/client.cpp -o client
+./client 127.0.0.1
+g++ src/client.cpp -o client
+./client 127.0.0.1
+g++ src/client.cpp -o client
+./client 127.0.0.1
+g++ src/client.cpp -o client
+./client 127.0.0.1
+echo -n '1e7c0100000200000000000003616263116c6f6e67617373646f6d61696e6e616d6503636f6d000001000103646566c01000010001' | xxd -r -p | nc -u -w 1 127.0.0.1 2053 | hexdump -C
+echo -n '1e7c0100000200000000000003616263116c6f6e67617373646f6d61696e6e616d6503636f6d000001000103646566c01000010001' | xxd -r -p 
+echo -n '1e7c0100000200000000000003616263116c6f6e67617373646f6d61696e6e616d6503636f6d000001000103646566c01000010001' | xxd -r -p > input.txt
+hexdump -C input.txt
+cat input.txt | nc -u 127.0.0.1 2053 > output.txt
+cat ./src/clientQuery.txt 
+hexdump -C ./src/clientQuery.txt 
+hexdump -C ./src/serverResponse.txt 
+hexdump -C ./src/clientQuery.txt 
+hexdump -C ./src/serverResponse.txt 
+hexdump -C ./src/clientQuery.txt 
+hexdump -C ./src/serverResponse.txt 
+g++ test.cpp -o test
+./test
+hexdump -C ./src/clientQuery.txt 
+hexdump -C ./src/serverResponse.txt 
+git push github master
+hexdump -C ./src/clientQuery.txt 
+hexdump -C ./src/serverResponse.txt 
+hexdump -C input.txt
+hexdump -C ./src/clientQuery.txt 
+hexdump -C output.txt 
+git add .
+git commit
+cd ~
+cd repo/codecrafters-dns-server-cpp/
+code .
+./your_program.sh 
+./client 127.0.0.1
+git add src/reference.cpp 
+git add .
+git commit
+git push github master
+nc cs2107-ctfd-i.comp.nus.edu.sg 5006
+./sys
+gcc sys.c -o testerror
+rm testerror 
+./sys
+nc cs2107-ctfd-i.comp.nus.edu.sg 5006
+./sys
+python bufferflow.py 
+python3 bufferflow.py 
+./sys
+python3 bufferflow.py 
+./sys
+python3 bufferflow.py 
+./sys
+python3 bufferflow.py 
+cd ~
+cd downloads/M2/
+ls
+pwndbg
+cd ~
+cd downloads/
+ls
+cd H2
+ls
+pwndbg
+ls -s
+ls -l
+chmod 744 .
+ls -l
+chmod 744 sys sys.c
+ls -l
+pwndbg
+python3 bufferflow.py 
+python 3 bufferflow.py 
+python3 bufferflow.py 
+nc cs2107-ctfd-i.comp.nus.edu.sg 5004
+cd ..
+cd M2
+ls
+objdump -d evilcowsay
+cd ~/
+cd downloads
+ls
+cd H2
+pwndbg
+ls
+gcc -o test_pie_or_not sys.c
+pwndbg
+gcc -o testagain -no-pie sys.c
+./testagain 
+pwndbg
+gcc -o sys_noprotection sys_original.c -m64 -fno-stack-protector -z execstack -no-pie
+gcc -o sys_noprotection sys.c -m64 -fno-stack-protector -z execstack -no-pie
+pwndbg
+ls
+rm sys_noprotection test_pie_or_not testagain 
+gcc -o sys_noprotection sys_original.c -m64 -fno-stack-protector -z execstack -no-pie
+gcc -o sys_noprotection sys.c -m64 -fno-stack-protector -z execstack -no-pie
+pwndbg
+./challenge 
+objdump -d challenge 
+pwndbg
+cd ~/repo/codecrafters-dns-server-cpp/
+code .
+python3 bufferflow.py 
+./sys
+cd ~/repo/codecrafters-dns-server-cpp/
+code .
+./your_program.sh 
+ifconfig
+./your_program.sh 
+./your_program.sh 123 123
+./your_program.sh --resolver 123
+./your_program.sh --resolver 123:
+./your_program.sh --resolver 123:32
+./your_program.sh --resolver 123.123.123.123:32
+./your_program.sh --resolver 123.123.300.123:32
+./your_program.sh --resolver 123.123.300.123:32a
+./your_program.sh --resolver 123.123.120.123:32a
+./your_program.sh --resolver 123.123.120.123:32
+./your_program.sh --resolver 1.10.50.100:32
+git add ./src/client.cpp 
+git commit
+git add .
+git commit
+./your_program.sh --resolver 1.10.50.100:32
+./your_program.sh --resolver 1.1.1.1:53
+git log
+git add ./src/netstruct.hpp 
+git commit
+./your_program.sh --resolver 1.1.1.1:53
+./your_program.sh --resolver 1.1.1.1:53\
+./your_program.sh --resolver 1.1.1.1:53
+./client 127.0.0.1
+./client 23.2.1
+./client 127.0.0.255
+./client 127.0.0.256
+./client 192.168.1.110
+g++ ./src/client.cpp client
+g++ ./src/client.cpp -o client
+./client 127.0.0.1
+./client 127.0.0.2
+./client 127.2.0.2
+./client 127.2.0.256
+./client 100.2.3.4
+./client 127.0.0.1
+g++ ./src/client.cpp -o client
+./client 127.0.0.1
+g++ ./src/client.cpp -o client
+./client 127.0.0.1
+g++ ./src/client.cpp -o client
+./client 127.0.0.1
+hexdump -C ./src/clientQuery.txt 
+hexdump -C ./src/serverResponse.txt 
+hexdump -C input.txt 
+git push github master
+hexdump -C ./src/higherserver.txt 
+hexdump -C ./src/isendtohigher.txt 
+hexdump -C ./src/higherserver.txt 
+hexdump -C ./src/isendtohigher.txt 
+hexdump -C ./src/higherserver.txt 
+hexdump -C ./src/isendtohigher.txt 
+hexdump -C ./src/higherserver.txt 
+hexdump -C ./src/isendtohigher.txt 
+hexdump -C ./src/higherserver.txt 
+hexdump -C ./src/serverResponse.txt 
+hexdump -C input.txt 
+hexdump -C ./src/higherserver.txt 
+hexdump -C input.txt 
+hexdump -C ./src/higherserver.txt 
+hexdump -C ./src/isendtohigher.txt 
+hexdump -C ./src/serverResponse.txt 
+hexdump -C ./src/higherserver.txt 
+hexdump -C ./src/serverResponse.txt 
+git add .
+git commit
+git add .
+git commit
+git push github master
+git status
+git add .
+git commit
+git commit --help
+git commit -m
+git commit -m "feat: the ultimate starting $"
+git push origin master
+./your_program.sh 
+asd'
+asd
+asd
+asd
+./your_program.sh 
+vcpkg
+install
+install libreadline-dev
+sudo apt install libreadline-dev
+./your_program.sh 
+apt
+cd ~/repo
+ls
+git clone https://git.codecrafters.io/3d135f36bc4733e9 helly-the-selfish-shell
+cd helly-the-selfish-shell/
+git commit -n 'chore: initial project setup'
+git commit -m 'chore: initial project setup'
+git status
+git log
+git --allow-empty commit -m 'chore: initial project setup'
+git commit --allow-empty -m 'chore: initial project setup'
+git push origin master
+code .
+./your_program.sh 
+git commit -m "chore: all commands are temporarily invalid!"
+git add .
+git commit -m "chore: all commands are temporarily invalid!"
+git push origin master
+git commit -m "dummy"
+git add .
+git commit -m "dummy"
+git rebase -i HEAD~2
+git push origin master -f
+./your_program.sh 
+git add .
+git commit -m "dummy"
+git rebase -i HEAD~2
+git push origin master -f
+./your_program.sh 
+git add .
+git commit
+git push origin master
+./your_program.sh 
+git add .
+git commit -m "feat: rudimentary exit command"
+git push origin master
+man strok
+man strtok
+cd ~/repo/helly-the-selfish-shell/
+code .
+echo testing
+echo "testing asbxcvas    asd"
+echo testing    asd   asd 
+code .
+cd ~/repo/helly-the-selfish-shell
+exitasd
+cd ~
+ls
+cd tool
+sls
+cd tools
+ls
+mkdir useful
+cd useful
+touch del_dup_same_order.sh
+vim del_dup_same_order.sh 
+cat del_dup_same_order.sh 
+ls
+./del_dup_same_order.sh
+ls
+ls -a
+ls -l
+chmod u+x del_dup_same_order.sh 
+ls
+ls -a
+ls -l
+./del_dup_same_order.sh 
+cat PATH=$(printf "%s" "$PATH" | awk -v RS=':' '!seen[$0]++' | paste -sd:) >del_dup_same_order.sh 
+$PATH
+cd ~/repo/helly-the-selfish-shell/
+ls
+clear
+type ls
+ls
+type ls
+type type
+type echo
+type ls --color=auto
+type grep
+$PATH
+type -a ls
+PATH="/usr/bin:/usr/local/bin:$PATH"
+$PATH
+type ls
+./your_program.sh 
+git add .
+git commit -m "feat: rudimentary echo command"
+git push origin master
+man strtok
+git add .
+git commit -m "fix: tokenize the input"
+./your_program.sh 
+git add .
+git commit -m "feat: rudimentary type command"
+git push origin master
+git add .
+git commit -m "dummy"
+git rebase -i HEAD~2
+git push origin master -f
+$PATH
+PATH="/usr/bin:/usr/local/bin:$PATH"
+$PATH
+PATH="/usr/bin:/usr/local/bin:$PATH"
+$PATH
+clear
+gcc test.c -o test
+./test
+$PATH
+clear
+man strtok
+./your_program.sh 
+man strtok_r
+./your_program.sh 
+git add .
+git commit -m "feat: type can handle executable file in path now"
+git push origin master
+./your_program.sh 
+man exec
+cd ~/repo/helly-the-selfish-shell/
+code .
+pwd
+cd /
+ls
+cd ~/repo/helly-the-selfish-shell
+cd ../..
+cd mnt/c
+cd /mnt/c
+cd ~/repo/helly-the-selfish-shell
+ls
+pwd
+host
+hostname
+whoami
+cd ../codecrafters-dns-server-cpp/src/..
+cd ..
+cd helly-the-selfish-shell/
+cd .. ..
+cd ./~
+git add .
+git commit -m "fix: change name for activate file"
+./activate.sh 
+echo asdasdas   asdasdas     saiudausd
+git add .
+git commit -m "dummy"
+git rebase --help
+git rebase --help | grep "-i"
+git rebase --help | grep "\-i"
+git rebase -i HEAD~2
+man exec
+./activate.sh 
+git
+./activate.sh 
+git status
+./activate.sh 
+git add .
+git commit -m "feat: able to run executable programme"
+git push origin master
+git add .
+git commit -m "fix: temporary end line handle"
+git push origin master
+./activate.sh 
+man wait
+man pưd
+man pwd
+man getpwd
+man pwd
+man getcwd
+./activate.sh 
+man getcwd
+./activate.sh 
+git status
+./activate.sh 
+git commit -m "feat: rudimentary pwd command"
+git push origin master
+git ađ .
+git add .
+git commit -m "dummy"
+git rebase -i HEAD~2
+git push origin master
+git push origin master -f
+./activate.sh 
+gcc test.c -o test
+./test
+gcc test.c -o test
+./test
+cd "src"
+cd ..
+cd test.c
+cd test
+cd huhu
+./activate.sh 
+git add .
+git commit -m "feat: absolute path cd"
+git push origin master
+git add .
+git commit -m "dummy"
+git rebase -i HEAD~2
+git push origin master -f
+cd src/test/test lv 1
+cd "src/test/test lv 1"
+cd .. 
+cd ..
+$HOME
+gcc test.c -o test
+./test
+clear
+./activate.sh 
+cd src/
+cd ..
+./activate.sh 
+./test
+./activate.sh 
+gcc test.c -o test
+./test
+git add .
+git commit -m "feat: relative path handle for cd"
+git push origin master
+./activate.sh 
+git add .
+git commit -m "fix: align the new line format"
+git push origin master
+./activate.sh 
+git add .
+git commit -m "feat: complete rudimentary cd command"
+git push origin master
+git add .
+git commit -m "dummy"
+git rebase -i HEAD~2
+git push origin master -f
+git add .
+git commit -m "style: reformat and add seperate file for readability"
+./activate.sh 
+cd ~/repo/
+ls
+mv helly-the-selfish-shell/ a-very-basic-replicated-shell
+cd a-very-basic-replicated-shell/
+code .
+type cd
+code .
+'echo'
+'echo ' testing
+'echo' testing
+asd asd asda
+echo 'test " '
+echo 'test " asd'
+echo 'test '" asd'
+echo 'test '" asd'"
+echo 'test\'  '" asd'"
+echo 'test\  '" asd'"
+echo 'test\  '" asd'" s
+echo 'test\  '" asd'" s asd 
+echo asd asd
+type asd asd 
+type ls cd
+type 'ls cd'
+echo "vcl   thata"  test
+echo 'vcl   thata'  test
+echo 'vcl   thata'    test
+echo \\test
+'echo   '
+"echo   "
+"echo   test"
+'echo   test'
+echo 'teste''teasd'
+echo 'teste''teasd
+echo /n
+echo /test
+echo \test
+echo " He sas : ' i am testing' "
+echo "/tmp/file/'name'"
+"/tmp/file/'\name\'"
+echo "/tmp/file/'\name\'"
+echo "/tmp/file/\name\'"
+echp "test\ test"
+echo "test\ test"
+echo "test $HOME test"
+echo "test \$HOME test"
+echo ' asdasd   ?  asd as'
+git add .
+git rebase -i HEAD~2
+./activate.sh 
+git add .
+git commit -m "dummy"
+git rebase -i HEAD~2
+./activate.sh 
+git add .
+git commit -m "dummy"
+./activate.sh 
+./activate.sh \
+./activate.sh 
+git add .
+git commit -m " dummy"
+git rebase -i HEAD~3
+git push origin master
+git commit -m " dummy"
+git rebase -i HEAD~3
+./activate.sh 
+git status
+git push origin master
+git add .
+git commit -m "dummy:"
+git rebase -i HEAD~2
+git push origin master
+git push origin master -f
+codecrafters
+codecrafter
+codecrafters test
+./activate.sh 
+git add .
+git commit -m "style: seperate logic from command in path"
+git push origin master
+./activate.sh 
+git add .
+git commit -m "fix: handle some memory leak bugs"
+git push origin master
+"git" status log
+cd ..
+cd ~/repo/a-very-basic-replicated-shell/
+git status log
+cd ~/repo/a-very-basic-replicated-shell/
+code .
+exit exit
+./activate.sh 
+pwd asd pwd
+pwd asd  as dpwd
+pwd
+pwd testing thiet luon a
+echo   asd   asd
+cd src/ src/test
+cd help
+cd --help
+cd src/ -l
+$PWD
+$HOMR
+$HOME
+./activate.sh 
+type type
+./activate.sh 
+git add .
+git commit -m "build: reformat some built-in command logic"
+./activate.sh 
+cd src/ src/
+./activate.sh 
+git add .
+git commit -m "dummy"
+git rebase -i HEAD~2
+git push origin master
+history
+./activate.sh 
+git
+type git
+cd /usr/bin/git
+cd /usr/bin/
+ls
+clear
+ls -l git
+file git
+ls -l l
+ls -l ls
+type 
+type type
+type cd
+ls -l cd
+type ls
+cd ~/repo/a-very-basic-replicated-shell/
+ls
+clear
+./activate.sh 
+git log
+git commit -m "build: continue to reformat existing command"
+git push origin master 
+./activate.sh 
+git add .
+git commit -m "feat: single quote parse"
+git push origin master
+./activate.sh 
+git status
+git commit -m "feat: double quote parse"
+git push origin master
+./activate.sh 
+git add .
+git commit -m "fix: terminate switch case for parse input"
+git push origin master
+./activate.sh 
+git add .
+git commit -m "feat: backslash parsing"
+git push origin master
+echo "/tmp/cow/f\n61"
+./activate.sh 
+echo "A \\ escapes itself"
+echo "A \" inside double quotes"	
+echo "shell'hello'\\'script"
+./activate.sh 
+echo testing\
+echo testing\ 
+echo testingasd
+asd
+echo "123123 "  12312 "123213
+1231231
+2312321
+3123213
+"
+echo asd as das  asdd
+echo "asdasasd""asdasdasd"
+echo "asdasasd""asdasdasd"'asdasda'
+echo testhello ?
+cd ~/repo/a-very-basic-replicated-shell/
+./activate.sh 
+cat
+cd ~/repo/a-very-basic-replicated-shell/
+ls
+cat README.md 
+type cat
+ls
+code .
+man open
+echo >1
+echo 1>
+echo &1
+echo &2
+&1
+&2
+clear
+exit
+man open
+man open | grep "mode"
+man chdir()
+man chdir
+man dup2
+man open
+man strcmp
+./activate.sh 
+type grep
+man open | grep "TRUNC"
+man open | grep "APP"
+git add .
+git commit -m "feat: add append operator also"
+git push origin master
+netcl
+clear
+git log
+type bash
+which bash
+./activate.sh 
+git add .
+./activate.sh 
+git add .
+git commit -m "fix: remove unused variable and update cwd correspondingly"
+./activate.sh 
+clear
+echo \>1
+cd src > text.txt
+cd src >> text.txt
+cd test
+cd ..
+ls
+type ls
+./activate.sh 
+cd ~
+pwd
+cd ..
+pwd
+cd ..
+pwd
+cd ~/repo/a-very-basic-replicated-shell/
+ls
+clear
+echo 1123>23
+echo 123123213>>23
+echo 123 123>23
+echo 123 123>23 123213.txt
+echo 123 > echo.txt 145
+git > echo.txt status
+./activate.sh 
+git add .
+git commit -m "fix: output correctly to stderr"
+./activate.sh 
+git add .
+git commit -m "style: small naming change"
+echo \>>1
+./activate.sh 
+git add .
+git commit -m "style: small change"
+git push origin master
+man dup2
+man open
+cd ~
+./activate.sh 
+$HOME
+echo $HOME
+./activate.sh 
+git add.
+git add .
+git commit -m "refactor: change to readline for interactive use"
+git push origin master
+./activate.sh 
+echo
+./activate.sh 
+git add .
+git commit -m "feat: autocompletion with readline for built-in command"
+git push origin master
+./activate.sh 
+$PATH
+cd !
+cd ~
+cd repo/a-very-basic-replicated-shell/
+ls
+pwd
+cd
+~
+../
+cd repo/a-very-basic-replicated-shell/
+code .
+cd ~/repo/a-very-basic-replicated-shell/
+code .
+ca
+type type type
+gcc test.c -o test
+./test 
+gcc test.c -o test
+./test 
+gcc test.c -o test
+./test 
+gcc test.c -o test
+clear
+gcc test.c -o test
+./test 
+gcc test.c -o test
+./test 
+gcc test.c -o test
+./test 
+gcc test.c -o test
+./test 
+gcc test.c -o test
+./test 
+gcc test.c -o test
+./test 
+./activate.sh 
+cd /ysr/local/bin
+cd /usr/local/bin
+ls
+touch custom_executable1234
+kubctl
+kubectl
+cd ~/repo/a-very-basic-replicated-shell/
+ls
+./activate.sh 
+git add .
+git commit -m "fix: executable file check for executable autocompletion"
+git push origin master
+./activate.sh 
+history 10
+history
+echo test
+echo " test"
+echo " test hello"
+echo " 2035 hello"
+echo "\t2035 hello"
+history 10
+invalid_command
+history 10
+history | sed -n '1p' | sed -n 'l'
+man sed
+echo $HISTCONTROL
+./activate.sh 
+history -w test.txt

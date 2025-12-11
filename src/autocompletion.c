@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-const char *BUILT_IN_COMMAND[] = {"echo", "pwd", "cd", "exit", "type"};
+const char *BUILT_IN_COMMAND[] = {"echo", "pwd", "cd", "exit", "type", "history"};
 const int BUILT_IN_SIZE = sizeof(BUILT_IN_COMMAND) / sizeof(BUILT_IN_COMMAND[0]);
 // This to reduce duplicates and unnecessary command
 // Return string array with NULL terminated
