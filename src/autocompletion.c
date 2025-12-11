@@ -44,10 +44,12 @@ char **list_executable_in_path(const char *text, int len) {
 
 char *command_generator(const char *text, int state) {
   static int in_index, len, ex_index;
+  static char **executable_file;
   if (state == 0) {
     in_index = 0;
     ex_index = 0;
     len = strlen(text);
+    executable_file = list_executable_in_path(text, len);
   }
   // This is to handle built in command
   while (in_index < BUILT_IN_SIZE) {
@@ -57,14 +59,17 @@ char *command_generator(const char *text, int state) {
     }
   }
   // This one is for executable in path
-  char **executable_file = list_executable_in_path(text, len);
+
   char *temp;
-  while ((temp = executable_file[in_index++]) != NULL) {
+  while ((temp = executable_file[ex_index++]) != NULL) {
     return strdup(temp);
   }
-  for (int i = 0; i < in_index; i++) {
+
+  // When it comes to here, there is no need to do anything with the storage, so release the memory
+  for (int i = 0; i < ex_index; i++) {
     free(executable_file[i]);
   }
+  free(executable_file);
   return NULL;
 }
 
