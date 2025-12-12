@@ -22,7 +22,8 @@ bool is_immutable_to_redirect(char *command) { // So that we don't need to spawn
 }
 // exit command with history handle : )
 void exit_command(int status) {
-  write_my_history(getenv("HISTFILE"), false);
+  if (getenv("HISTFILE")) // if no hist file how write : )
+    write_my_history(getenv("HISTFILE"), false);
   exit(status);
 }
 
