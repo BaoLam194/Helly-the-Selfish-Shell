@@ -55,7 +55,6 @@ void history_command(int len, char **command) {
   }
   else { // Flag etc : -n, -r
     if (strcmp(command[1], "-r") == 0) {
-
       FILE *fp;
       char buffer[MAX_ARGUMENT_LENGTH];
       if ((fp = fopen(command[2], "r")) == NULL) {
@@ -66,6 +65,19 @@ void history_command(int len, char **command) {
       while ((fgets(buffer, sizeof(buffer), fp)) != NULL) {
         buffer[strcspn(buffer, "\n")] = '\0';
         add_history(buffer);
+      }
+      fclose(fp);
+    }
+    else if (strcmp(command[1], "-w") == 0) {
+      FILE *fp;
+      if ((fp = fopen(command[2], "w")) == NULL) {
+        fprintf(stderr, "%s: error open file", command[2]);
+        return;
+      }
+      HIST_ENTRY **my_his = history_list();
+      int start;
+      for (start = 0; my_his[start] != NULL; start++) {
+        fprintf(fp, "%s\n", my_his[start]->line);
       }
       fclose(fp);
     }
@@ -158,7 +170,7 @@ void handle_command(char **command, int count, char **cwd, int flag) {
   }
   else {
     if (is_built_in(command[0]) && is_immutable_to_redirect(command[0])) {
-      // It is built_in command
+      // It is built_in command and don't need to access shell state ?
       execute_built_in(command, count, cwd);
     }
     else { // Always need spawn new child process to cover this execution
