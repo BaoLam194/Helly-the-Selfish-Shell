@@ -53,8 +53,8 @@ void history_command(int len, char **command) {
       printf(" %d %s\n", start + 1, my_his[start]->line);
     }
   }
-  else { // Flag etc : -n, -r
-    if (strcmp(command[1], "-r") == 0) {
+  else {                                 // Flag etc : -n, -r
+    if (strcmp(command[1], "-r") == 0) { // read
       FILE *fp;
       char buffer[MAX_ARGUMENT_LENGTH];
       if ((fp = fopen(command[2], "r")) == NULL) {
@@ -68,9 +68,22 @@ void history_command(int len, char **command) {
       }
       fclose(fp);
     }
-    else if (strcmp(command[1], "-w") == 0) {
+    else if (strcmp(command[1], "-w") == 0) { // write
       FILE *fp;
       if ((fp = fopen(command[2], "w")) == NULL) {
+        fprintf(stderr, "%s: error open file", command[2]);
+        return;
+      }
+      HIST_ENTRY **my_his = history_list();
+      int start;
+      for (start = 0; my_his[start] != NULL; start++) {
+        fprintf(fp, "%s\n", my_his[start]->line);
+      }
+      fclose(fp);
+    }
+    else if (strcmp(command[1], "-a") == 0) { // append
+      FILE *fp;
+      if ((fp = fopen(command[2], "a")) == NULL) {
         fprintf(stderr, "%s: error open file", command[2]);
         return;
       }
