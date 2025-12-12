@@ -55,7 +55,7 @@ void history_command(int len, char **command) {
   }
   else {                                 // Flag etc : -n, -r
     if (strcmp(command[1], "-r") == 0) { // read
-      read_my_history(command[2]);
+      read_my_history(command[2], true);
     }
     else if (strcmp(command[1], "-w") == 0) { // write
       write_my_history(command[2]);

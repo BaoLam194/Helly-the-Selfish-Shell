@@ -51,6 +51,6 @@ extern const int BUILT_IN_SIZE;
 #include <dirent.h> // For reading the directory
 
 // History
-void read_my_history(char *file);
+void read_my_history(char *file, bool flag);
 void write_my_history(char *file);
 void append_my_history(char *file);

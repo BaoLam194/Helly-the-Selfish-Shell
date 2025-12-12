@@ -3,11 +3,12 @@
 #include <readline/readline.h>
 #include <stdio.h>
 #include <stdlib.h>
-void read_my_history(char *file) {
+void read_my_history(char *file, bool flag) {
   FILE *fp;
   char buffer[MAX_ARGUMENT_LENGTH];
   if ((fp = fopen(file, "r")) == NULL) {
-    fprintf(stderr, "%s: file not found", file);
+    if (flag) // Not start up
+      fprintf(stderr, "%s: file not found", file);
     return;
   }
 
