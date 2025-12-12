@@ -16,6 +16,7 @@ void read_my_history(char *file) {
     add_history(buffer);
   }
   fclose(fp);
+  return;
 }
 void write_my_history(char *file) {
   FILE *fp;
@@ -29,6 +30,7 @@ void write_my_history(char *file) {
     fprintf(fp, "%s\n", my_his[start]->line);
   }
   fclose(fp);
+  return;
 }
 
 void append_my_history(char *file) {
@@ -44,4 +46,5 @@ void append_my_history(char *file) {
   }
   current_offset_for_write = history_length;
   fclose(fp);
+  return;
 }

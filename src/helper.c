@@ -10,6 +10,7 @@ void initialize() {
   rl_attempted_completion_function = command_completion;
   // Tab -> this attempted completion -> completion -> update shell
   // Enable history
+  read_my_history(getenv("HISTFILE"));
 }
 
 char *check_executable_file_in_path(const char *file) {
