@@ -19,7 +19,7 @@ void read_my_history(char *file, bool flag) {
   fclose(fp);
   return;
 }
-void write_my_history(char *file) {
+void write_my_history(char *file, bool flag) {
   FILE *fp;
   if ((fp = fopen(file, "w")) == NULL) {
     fprintf(stderr, "%s: error open file", file);
@@ -34,7 +34,7 @@ void write_my_history(char *file) {
   return;
 }
 
-void append_my_history(char *file) {
+void append_my_history(char *file, bool flag) {
   FILE *fp;
   if ((fp = fopen(file, "a")) == NULL) {
     fprintf(stderr, "%s: error open file", file);

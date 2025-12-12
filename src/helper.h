@@ -8,7 +8,7 @@
 #define MAX_ARGUMENT_LENGTH 1024
 void initialize();
 extern int current_offset_for_write;
-
+// extern int current_offset_of_session;
 // Command to execute
 #include <fcntl.h> // For open()
 // dup2 from unistd
@@ -51,6 +51,7 @@ extern const int BUILT_IN_SIZE;
 #include <dirent.h> // For reading the directory
 
 // History
+// flag = false, startup and exit use, flag =true, normal use
 void read_my_history(char *file, bool flag);
-void write_my_history(char *file);
-void append_my_history(char *file);
+void write_my_history(char *file, bool flag);
+void append_my_history(char *file, bool flag);

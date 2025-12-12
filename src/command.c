@@ -20,6 +20,11 @@ bool is_immutable_to_redirect(char *command) { // So that we don't need to spawn
     return false;
   }
 }
+// exit command with history handle : )
+void exit_command(int status) {
+  write_my_history(getenv("HISTFILE"), false);
+  exit(status);
+}
 
 // These function behaves with many arguments
 // as we execute each argument independently
@@ -58,10 +63,10 @@ void history_command(int len, char **command) {
       read_my_history(command[2], true);
     }
     else if (strcmp(command[1], "-w") == 0) { // write
-      write_my_history(command[2]);
+      write_my_history(command[2], true);
     }
     else if (strcmp(command[1], "-a") == 0) { // append
-      append_my_history(command[2]);
+      append_my_history(command[2], true);
     }
   }
 }
@@ -70,7 +75,7 @@ void execute_built_in(char **command, int count, char **cwd) {
 
   char *command_token = command[0];
   if (strcmp(command_token, "exit") == 0) { // exit command
-    exit(0);
+    exit_command(0);
     return;
   }
   else if (strcmp(command_token, "echo") == 0) { // echo command
@@ -83,7 +88,7 @@ void execute_built_in(char **command, int count, char **cwd) {
   else if (strcmp(command_token, "pwd") == 0) { // pwd command
     if (*cwd == NULL) {
       fprintf(stderr, "Current working directory not found");
-      exit(1);
+      exit_command(1);
     }
     printf("%s\n", *cwd);
     return;

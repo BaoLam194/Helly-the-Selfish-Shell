@@ -3,6 +3,7 @@
 #include <readline/readline.h>
 
 int current_offset_for_write = 0;
+// int current_offset_of_session = 0;
 // For readline and history
 void initialize() {
   // Flush after every printf
@@ -11,6 +12,7 @@ void initialize() {
   // Tab -> this attempted completion -> completion -> update shell
   // Enable history
   read_my_history(getenv("HISTFILE"), false);
+  // current_offset_of_session = history_length;
 }
 
 char *check_executable_file_in_path(const char *file) {
